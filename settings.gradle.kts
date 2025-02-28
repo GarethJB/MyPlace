@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -18,15 +19,13 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
 rootProject.name = "MyPlace"
 include(":app")
 include(":data:data-api")
 include(":data:data-model")
 include(":data:data-store")
-include(":domain:domain-api")
-include(":domain:domain-model")
 include(":presentation:presentation-model")
 include(":presentation:presentation-util")
 include(":presentation:presentation-designsystem")
-include(":build-logic:convention")
+include(":domain:domain-api")
+include(":domain:domain-model")
