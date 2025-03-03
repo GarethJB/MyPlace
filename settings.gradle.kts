@@ -21,11 +21,12 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MyPlace"
 include(":app")
+include(":domain:domain-api")
+include(":domain:domain-model")
 include(":data:data-api")
 include(":data:data-model")
 include(":data:data-store")
 include(":presentation:presentation-model")
 include(":presentation:presentation-util")
 include(":presentation:presentation-designsystem")
-include(":domain:domain-api")
-include(":domain:domain-model")
+include(":core:di")

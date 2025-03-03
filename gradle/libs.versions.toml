@@ -1,53 +1,61 @@
 [versions]
-androidGradle = "8.8.2"
-kotlin = "2.0.0"
 
+# Build Tools & Plugins
+agp = "8.8.2"
+kotlin = "2.0.0"
+ksp = "1.8.22-1.0.11"
+jetbrainsKotlinJvm = "1.8.22"
+
+# Coroutine Libraries
 coroutine = "1.7.1"
 kotlinx = "1.6.2"
-ksp = "1.8.22-1.0.11"
-serializationConverter = "0.8.0"
-junit = "4.13.2"
 
-activityCompose = "1.10.0"
+# Jetpack Compose
 composeBom = "2024.03.00"
+activityCompose = "1.10.0"
+androidxComposeCompiler = "1.5.15"
+composeRuntime = "1.5.3"
 
+# AndroidX & UI Libraries
 coreKtx = "1.15.0"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 appcompat = "1.6.1"
 material = "1.10.0"
-jetbrainsKotlinJvm = "1.8.22"
 
-androidxComposeCompiler = "1.5.15"
-composeRuntime = "1.5.3"
+# Dependency
+hilt = "2.51.1"
+
+serializationConverter = "0.8.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+
 
 
 
 [libraries]
-android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradle" }
+
+# Build Tools & Plugins
+android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
-ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
 
+# Coroutine Libraries
 coroutine-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutine" }
 coroutine-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutine" }
 coroutine-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutine" }
-
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx" }
-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "serializationConverter" }
 
+# Jetpack Compose
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-compose-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "androidxComposeCompiler" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "composeRuntime" }
 
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-
+# AndroidX & UI Libraries
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
@@ -60,10 +68,24 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
+# Dependency
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "serializationConverter" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+
+
+
 [plugins]
-android-application = { id = "com.android.application", version.ref = "androidGradle" }
-android-library = { id = "com.android.library", version.ref = "androidGradle" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

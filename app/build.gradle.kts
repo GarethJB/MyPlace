@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     id("myplace.android.application")
     id("myplace.android.application.compose")
+    id("myplace.android.hilt")
 }
 
 android {

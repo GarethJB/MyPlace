@@ -45,6 +45,10 @@ gradlePlugin {
             id = "myplace.android.ksp"
             implementationClass = "AndroidKSPLibraryConventionPlugin"
         }
+        register("androidHilt") {
+            id = "myplace.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
+        }
     }
 }
 

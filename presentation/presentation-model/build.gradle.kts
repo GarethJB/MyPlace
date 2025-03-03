@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     id("myplace.android.library")
     id("myplace.android.library.compose")
+    id("myplace.android.hilt")
 }
 
 android {
